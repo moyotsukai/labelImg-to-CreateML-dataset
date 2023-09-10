@@ -1,25 +1,17 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const BASE_PATH = "/Users/owner/Downloads/KaraokeClassifierData/TrainingData/labeledImgData";
-const NUM = 46;
-const format = () => __awaiter(void 0, void 0, void 0, function* () {
+const format = () => {
     //join
+    const files = fs_1.default.readdirSync(BASE_PATH);
+    const fileCount = files.length;
     let joinedData = [];
-    for (let i = 0; i < NUM; i++) {
-        const data = JSON.parse(yield fs_1.default.readFileSync(`${BASE_PATH}/d${i + 1}.json`, 'utf8'));
+    for (let i = 0; i < fileCount; i++) {
+        const data = JSON.parse(fs_1.default.readFileSync(`${BASE_PATH}/d${i + 1}.json`, 'utf8'));
         joinedData = joinedData.concat(data);
     }
     //format
@@ -35,5 +27,5 @@ const format = () => __awaiter(void 0, void 0, void 0, function* () {
     catch (err) {
         console.log(err);
     }
-});
+};
 format();

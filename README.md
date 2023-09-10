@@ -12,9 +12,6 @@
 //結合したいjsonファイルが入ったフォルダのパス
 const BASE_PATH = "/Users/owner/Downloads/KaraokeClassifierData/TrainingData/labeledImgData"
 //command + option + C でファイルのパスをコピーできるので便利
-
-//ファイルの数
-const NUM = 46
 ```  
 
 ### 4. ターミナルを開き、このプロジェクトのディレクトリに移動し、以下を実行  

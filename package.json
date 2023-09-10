@@ -6,7 +6,7 @@
   "module": "es2022",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build & node index.js"
+    "start": "npm run build & node ./dist/index.js"
   },
   "author": "",
   "license": "ISC",

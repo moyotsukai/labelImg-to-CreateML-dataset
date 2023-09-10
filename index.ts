@@ -1,13 +1,14 @@
 import fs from "fs"
 
 const BASE_PATH = "/Users/owner/Downloads/KaraokeClassifierData/TrainingData/labeledImgData"
-const NUM = 46
 
-const format = async () => {
+const format = () => {
   //join
+  const files = fs.readdirSync(BASE_PATH)
+  const fileCount = files.length
   let joinedData: Array<any> = []
-  for (let i = 0; i < NUM; i++) {
-    const data: Array<any> = JSON.parse(await fs.readFileSync(`${BASE_PATH}/d${i + 1}.json`, 'utf8'))
+  for (let i = 0; i < fileCount; i++) {
+    const data: Array<any> = JSON.parse(fs.readFileSync(`${BASE_PATH}/d${i + 1}.json`, 'utf8'))
     joinedData = joinedData.concat(data)
   }
 
